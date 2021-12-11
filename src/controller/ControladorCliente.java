@@ -8,6 +8,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Cliente;
+import view.InterfazClienteLista;
 import view.InterfazClienteRegistro;
 //import view.PanelPrincipal;
 
@@ -24,6 +25,10 @@ public class ControladorCliente implements ActionListener{
         this.vistaRegistroCliente = vistaRegistroCliente;
         this.cliente = cliente;
 //        this.vistaRegistroCliente.btnClienteRegistroGuardar.addActionListener(this);
+    }
+
+    public ControladorCliente(InterfazClienteLista vClienteLista, Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

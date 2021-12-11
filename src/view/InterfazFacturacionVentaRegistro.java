@@ -9,12 +9,12 @@ package view;
  *
  * @author fer
  */
-public class InterfazFacturacionRegistroVenta extends javax.swing.JPanel {
+public class InterfazFacturacionVentaRegistro extends javax.swing.JPanel {
 
     /**
      * Creates new form InterfazFacturacionRegistroVenta
      */
-    public InterfazFacturacionRegistroVenta() {
+    public InterfazFacturacionVentaRegistro() {
         initComponents();
     }
 

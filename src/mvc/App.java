@@ -13,14 +13,29 @@ public class App {
         
         //instancia vista
         PanelPrincipal Interfaz = new PanelPrincipal();
-        InterfazClienteRegistro vClienteLista = new InterfazClienteRegistro();
-//        InterfazFacturacionRegistroVenta vClienteRegistro = new InterfazFacturacionRegistroVenta();
+        InterfazClienteLista vClienteLista = new InterfazClienteLista();
+        InterfazClienteRegistro vClienteRegistro = new InterfazClienteRegistro();
+        InterfazFacturacionVentaLista vVentaLista = new InterfazFacturacionVentaLista();
+        InterfazFacturacionVentaRegistro vVentaRegistro = new InterfazFacturacionVentaRegistro();
+        InterfazProveedorLista vProveedorLista = new InterfazProveedorLista();
+        InterfazProveedorRegistro vProveedorRegistro = new InterfazProveedorRegistro();
+        InterfazRepuestoLista vRepuestoLista = new InterfazRepuestoLista();
+        InterfazRepuestoRegistro vRepuestoRegistro = new InterfazRepuestoRegistro();
         
         //instancia controlador
-        ControladorInterfaz ctrl = new ControladorInterfaz(Interfaz);
-        ControladorCliente ctrlCliente = new ControladorCliente(vClienteLista,cliente);
+        ControladorInterfaz ctrl = new ControladorInterfaz( Interfaz,
+                                                            vClienteLista,vClienteRegistro,
+                                                            vVentaLista,vVentaRegistro,
+                                                            vProveedorLista,vProveedorRegistro,
+                                                            vRepuestoLista,vRepuestoRegistro);
+        
+//        ControladorCliente ctrlCliente = new ControladorCliente(vClienteLista,cliente);
         
         ctrl.iniciar();
+        
+        
+        
+        
         
     }   
     
