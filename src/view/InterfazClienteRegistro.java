@@ -16,6 +16,9 @@ public class InterfazClienteRegistro extends javax.swing.JPanel {
      */
     public InterfazClienteRegistro() {
         initComponents();
+        cBoxClienteRegistroTipoDocumento.addItem("DNI");
+        cBoxClienteRegistroTipoDocumento.addItem("CE");
+        cBoxClienteRegistroTipoDocumento.addItem("Pasaporte");
     }
 
     /**
@@ -32,16 +35,20 @@ public class InterfazClienteRegistro extends javax.swing.JPanel {
         txtClienteRegistroNombre = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtClienteRegistroEmail = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtClienteRegistroTelefono = new javax.swing.JTextField();
-        txtClienteRegistroDireccion = new javax.swing.JTextField();
-        txtClienteRegistroTipoDocumento = new javax.swing.JTextField();
+        txtClienteRegistroNumDocumento = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnClienteRegistroGuardar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         btnClienteRegistroEiminar = new javax.swing.JButton();
-        btnClienteRegistroTipoDocumento = new javax.swing.JButton();
+        cBoxClienteRegistroTipoDocumento = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        txtClienteRegistroApellidos = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        txtClienteRegistroEmail = new javax.swing.JTextField();
+        txtClienteRegistroCiudad = new javax.swing.JTextField();
+        txtClienteRegistroDireccion = new javax.swing.JTextField();
 
         btnClienteRegistroBuscar.setText("Buscar");
 
@@ -53,15 +60,9 @@ public class InterfazClienteRegistro extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Nombres y apellidos//Nombre empresa");
+        jLabel1.setText("Nombre");
 
         jLabel2.setText("Email");
-
-        txtClienteRegistroEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtClienteRegistroEmailActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Teléfono");
 
@@ -71,13 +72,7 @@ public class InterfazClienteRegistro extends javax.swing.JPanel {
             }
         });
 
-        txtClienteRegistroDireccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtClienteRegistroDireccionActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Dirección");
+        jLabel4.setText("Ciudad");
 
         btnClienteRegistroGuardar.setText("Guardar");
         btnClienteRegistroGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -88,73 +83,124 @@ public class InterfazClienteRegistro extends javax.swing.JPanel {
 
         btnClienteRegistroEiminar.setText("Eliminar");
 
-        btnClienteRegistroTipoDocumento.setText("DNI");
+        cBoxClienteRegistroTipoDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cBoxClienteRegistroTipoDocumentoActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Apellidos");
+
+        txtClienteRegistroApellidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClienteRegistroApellidosActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Dirección");
+
+        txtClienteRegistroEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClienteRegistroEmailActionPerformed(evt);
+            }
+        });
+
+        txtClienteRegistroCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClienteRegistroCiudadActionPerformed(evt);
+            }
+        });
+
+        txtClienteRegistroDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtClienteRegistroDireccionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(534, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(490, 490, 490)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(btnClienteRegistroRegresar)
+                        .addGap(82, 82, 82)
                         .addComponent(btnClienteRegistroBuscar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnClienteRegistroRegresar))
-                    .addComponent(jSeparator1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
+                        .addGap(483, 483, 483))))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel4)
+                    .addComponent(txtClienteRegistroCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClienteRegistroEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClienteRegistroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtClienteRegistroApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtClienteRegistroNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnClienteRegistroTipoDocumento)
-                        .addGap(26, 26, 26)
-                        .addComponent(txtClienteRegistroTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtClienteRegistroNombre)
-                    .addComponent(txtClienteRegistroEmail)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(btnClienteRegistroEiminar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnClienteRegistroGuardar))
-                    .addComponent(txtClienteRegistroDireccion)
-                    .addComponent(txtClienteRegistroTelefono))
-                .addGap(453, 453, 453))
+                        .addComponent(cBoxClienteRegistroTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtClienteRegistroNumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(btnClienteRegistroEiminar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnClienteRegistroGuardar))
+                        .addComponent(txtClienteRegistroDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClienteRegistroBuscar)
                     .addComponent(btnClienteRegistroRegresar))
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtClienteRegistroTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnClienteRegistroTipoDocumento))
-                .addGap(35, 35, 35)
+                    .addComponent(cBoxClienteRegistroTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtClienteRegistroNumDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtClienteRegistroNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtClienteRegistroEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtClienteRegistroApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtClienteRegistroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtClienteRegistroEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtClienteRegistroCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtClienteRegistroDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnClienteRegistroGuardar)
                     .addComponent(btnClienteRegistroEiminar))
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -162,21 +208,33 @@ public class InterfazClienteRegistro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtClienteRegistroNombreActionPerformed
 
+    private void txtClienteRegistroTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteRegistroTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClienteRegistroTelefonoActionPerformed
+
+    private void btnClienteRegistroGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteRegistroGuardarActionPerformed
+
+    }//GEN-LAST:event_btnClienteRegistroGuardarActionPerformed
+
+    private void txtClienteRegistroApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteRegistroApellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtClienteRegistroApellidosActionPerformed
+
     private void txtClienteRegistroEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteRegistroEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtClienteRegistroEmailActionPerformed
 
-    private void txtClienteRegistroTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteRegistroTelefonoActionPerformed
+    private void txtClienteRegistroCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteRegistroCiudadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtClienteRegistroTelefonoActionPerformed
+    }//GEN-LAST:event_txtClienteRegistroCiudadActionPerformed
 
     private void txtClienteRegistroDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteRegistroDireccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtClienteRegistroDireccionActionPerformed
 
-    private void btnClienteRegistroGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteRegistroGuardarActionPerformed
-
-    }//GEN-LAST:event_btnClienteRegistroGuardarActionPerformed
+    private void cBoxClienteRegistroTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cBoxClienteRegistroTipoDocumentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cBoxClienteRegistroTipoDocumentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -184,16 +242,20 @@ public class InterfazClienteRegistro extends javax.swing.JPanel {
     public javax.swing.JButton btnClienteRegistroEiminar;
     public javax.swing.JButton btnClienteRegistroGuardar;
     public javax.swing.JButton btnClienteRegistroRegresar;
-    public javax.swing.JButton btnClienteRegistroTipoDocumento;
+    public javax.swing.JComboBox<String> cBoxClienteRegistroTipoDocumento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
+    public javax.swing.JTextField txtClienteRegistroApellidos;
+    public javax.swing.JTextField txtClienteRegistroCiudad;
     public javax.swing.JTextField txtClienteRegistroDireccion;
     public javax.swing.JTextField txtClienteRegistroEmail;
     public javax.swing.JTextField txtClienteRegistroNombre;
+    public javax.swing.JTextField txtClienteRegistroNumDocumento;
     public javax.swing.JTextField txtClienteRegistroTelefono;
-    public javax.swing.JTextField txtClienteRegistroTipoDocumento;
     // End of variables declaration//GEN-END:variables
 }

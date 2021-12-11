@@ -66,7 +66,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         });
         mCliente.add(iRegistrarCliente);
 
-        iListarCliente.setText("Lista de Clientes");
+        iListarCliente.setText("Lista de clientes");
         iListarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iListarClienteActionPerformed(evt);
@@ -121,7 +121,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
 
         mProveedor.setText("Proveedor");
 
-        iRegistrarProveedor.setText("Registrar Proveedor");
+        iRegistrarProveedor.setText("Registrar proveedor");
         iRegistrarProveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 iRegistrarProveedorActionPerformed(evt);
@@ -158,83 +158,34 @@ public class PanelPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iRegistrarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iRegistrarRepuestoActionPerformed
-        InterfazRepuestoRegistro iRepuestoRegistro = new InterfazRepuestoRegistro();
-        iRepuestoRegistro.setSize(1200,720);
-        iRepuestoRegistro.setLocation(0, 0);
-        contenido.removeAll();
-        contenido.add(iRepuestoRegistro,BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
+
     }//GEN-LAST:event_iRegistrarRepuestoActionPerformed
 
     private void iRegistrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iRegistrarClienteActionPerformed
-        InterfazClienteRegistro iClienteRegistro = new InterfazClienteRegistro();
-        iClienteRegistro.setSize(1200,720);
-        iClienteRegistro.setLocation(0, 0);
-        contenido.removeAll();
-        contenido.add(iClienteRegistro,BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
+
     }//GEN-LAST:event_iRegistrarClienteActionPerformed
 
     private void iListarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iListarClienteActionPerformed
-        InterfazClienteLista iClienteLista = new InterfazClienteLista();
-        iClienteLista.setSize(1200,720);
-        iClienteLista.setLocation(0, 0);
-        contenido.removeAll();
-        contenido.add(iClienteLista,BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
+
     }//GEN-LAST:event_iListarClienteActionPerformed
 
     private void iListaRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iListaRepuestoActionPerformed
-        InterfazRepuestoLista iRepuestoLista = new InterfazRepuestoLista();
-        iRepuestoLista.setSize(1200,720);
-        iRepuestoLista.setLocation(0, 0);
-        contenido.removeAll();
-        contenido.add(iRepuestoLista,BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
+
     }//GEN-LAST:event_iListaRepuestoActionPerformed
 
     private void iRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iRegistrarVentaActionPerformed
-        InterfazFacturacionRegistroVenta iFacturacionRegistroventa = new InterfazFacturacionRegistroVenta();
-        iFacturacionRegistroventa.setSize(1200,720);
-        iFacturacionRegistroventa.setLocation(0, 0);
-        contenido.removeAll();
-        contenido.add(iFacturacionRegistroventa,BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
+
     }//GEN-LAST:event_iRegistrarVentaActionPerformed
 
     private void iListaVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iListaVentasActionPerformed
-        InterfazFacturacionVentaLista iFacturacionVentaLista =new InterfazFacturacionVentaLista();
-        iFacturacionVentaLista.setSize(1200,720);
-        iFacturacionVentaLista.setLocation(0, 0);
-        contenido.removeAll();
-        contenido.add(iFacturacionVentaLista,BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
+
     }//GEN-LAST:event_iListaVentasActionPerformed
 
     private void iRegistrarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iRegistrarProveedorActionPerformed
-        InterfazProveedorRegistro iProveedorRegistro =new InterfazProveedorRegistro(); 
-        iProveedorRegistro.setSize(1200,720);
-        iProveedorRegistro.setLocation(0, 0);
-        contenido.removeAll();
-        contenido.add(iProveedorRegistro,BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint(); 
+  
     }//GEN-LAST:event_iRegistrarProveedorActionPerformed
 
     private void iListaProveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iListaProveedoresActionPerformed
-        InterfazProveedorLista iProveedorLista = new InterfazProveedorLista();
-        iProveedorLista.setSize(1200,720);
-        iProveedorLista.setLocation(0, 0);
-        contenido.removeAll();
-        contenido.add(iProveedorLista,BorderLayout.CENTER);
-        contenido.revalidate();
-        contenido.repaint();
 
     }//GEN-LAST:event_iListaProveedoresActionPerformed
 
@@ -263,6 +214,7 @@ public class PanelPrincipal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PanelPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

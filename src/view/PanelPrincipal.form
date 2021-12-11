@@ -49,7 +49,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="iListarCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Lista de Clientes"/>
+                <Property name="text" type="java.lang.String" value="Lista de clientes"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="iListarClienteActionPerformed"/>
@@ -130,7 +130,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="iRegistrarProveedor">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Proveedor"/>
+                <Property name="text" type="java.lang.String" value="Registrar proveedor"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="iRegistrarProveedorActionPerformed"/>
