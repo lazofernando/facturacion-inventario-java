@@ -3,16 +3,13 @@ package controller;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Arrays;
+import java.awt.event.MouseEvent;
+import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import model.Cliente;
-import model.Conexion;
+import model.*;
 import view.*;
 
 public class ControladorInterfaz implements ActionListener{
@@ -28,6 +25,7 @@ public class ControladorInterfaz implements ActionListener{
     private InterfazRepuestoRegistro repuestoRegistro;
 
     private Cliente cliente;
+    private Proveedor proveedor;
    
     //variables para la vista clientelista 
     String sentenciaSQL_obtenerClienteLista ="select cli_tipo_doc, cli_num_doc, cli_nomb, cli_ape, cli_telef, cli_mail, cli_nomb_ciudad, cli_direc from t_cliente;";
@@ -35,7 +33,6 @@ public class ControladorInterfaz implements ActionListener{
     String messageDialogTryClienteLista = "Se ha obtenido la lista de clientes exitosamente";
     String messageDialogCathClienteLista = "No se pudo obtener la lista de clientes";
     String tituloVentanaClienteLista = "Cliente-lista";
-    String encabezadoClienteLista[]= {"tipo de Documento","Numero de documento","Nombre","Apellidos","Telefono","Email","Ciufaf","Direccion"};
 
     
     //variables para la vista proveedorlista
@@ -44,7 +41,6 @@ public class ControladorInterfaz implements ActionListener{
     String messageDialogTryProveedorLista = "Se ha obtenido la lista de proveedores exitosamente";
     String messageDialogCathProveedorLista = "No se pudo obtener la lista de Proveedor";
     String tituloVentanaProveedorLista = "Proveedor-lista";
-    String encabezadoProveedorLista[]= {"tipo de Documento","Numero de documento","Nombre comercial","Nombre","Apellidos","Telefono","Email","Ciufaf","Direccion"};
  
 
     public ControladorInterfaz( PanelPrincipal interfaz, 
@@ -52,7 +48,7 @@ public class ControladorInterfaz implements ActionListener{
                                 InterfazFacturacionVentaLista ventaLista, InterfazFacturacionVentaRegistro ventaRegistro, 
                                 InterfazProveedorLista proveedorLista, InterfazProveedorRegistro proveedorRegistro, 
                                 InterfazRepuestoLista repuestoLista, InterfazRepuestoRegistro repuestoRegistro, 
-                                Cliente cliente
+                                Cliente cliente, Proveedor proveedor
     ) {
         this.interfaz = interfaz;
         this.clienteLista = clienteLista;
@@ -63,7 +59,10 @@ public class ControladorInterfaz implements ActionListener{
         this.proveedorRegistro = proveedorRegistro;
         this.repuestoLista = repuestoLista;
         this.repuestoRegistro = repuestoRegistro;
+        
+        
         this.cliente = cliente;
+        this.proveedor = proveedor; 
         
         this.interfaz.iRegistrarCliente.addActionListener(this);
         this.interfaz.iListarCliente.addActionListener(this);
@@ -78,7 +77,6 @@ public class ControladorInterfaz implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() ==this.interfaz.iListarCliente) {
-            DefaultTableModel modeloClienteLista =new DefaultTableModel(null,encabezadoClienteLista);
             MostrarInterfaz(getClienteLista());
             interfaz.setTitle("Lista de clientes");
             mostrarLista(   sentenciaSQL_obtenerClienteLista,
@@ -86,7 +84,7 @@ public class ControladorInterfaz implements ActionListener{
                             messageDialogTryClienteLista, 
                             messageDialogCathClienteLista, 
                             tituloVentanaClienteLista, 
-                            modeloClienteLista,
+                            getCliente().getTablalistar(),
                             getClienteLista().tbClienteLista);
         }
         if (ae.getSource() ==this.interfaz.iRegistrarCliente) {
@@ -95,9 +93,6 @@ public class ControladorInterfaz implements ActionListener{
 
         }
         if (ae.getSource() ==this.interfaz.iListaProveedores) {
-            DefaultTableModel modeloProveedorLista =new DefaultTableModel(null,encabezadoProveedorLista);
-            System.out.println(encabezadoProveedorLista);
-            System.out.println(encabezadoClienteLista);
             MostrarInterfaz(getProveedorLista());
             interfaz.setTitle("Lista de proveedores");
             mostrarLista(   sentenciaSQL_obtenerProveedorLista,
@@ -105,7 +100,7 @@ public class ControladorInterfaz implements ActionListener{
                             messageDialogTryProveedorLista, 
                             messageDialogCathProveedorLista, 
                             tituloVentanaProveedorLista, 
-                            modeloProveedorLista,
+                            getProveedor().getTablalistar(),
                             getProveedorLista().tbProveedorLista);
         }    
         if (ae.getSource() ==this.interfaz.iRegistrarProveedor) {
@@ -129,6 +124,13 @@ public class ControladorInterfaz implements ActionListener{
             interfaz.setTitle("Lista de repuesto");
         }      
     }
+    
+    public void mouseClicked(MouseEvent ae){
+        
+    }
+    
+    
+    
 
     public void iniciar(){
         
@@ -258,5 +260,12 @@ public class ControladorInterfaz implements ActionListener{
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setCliente(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 }

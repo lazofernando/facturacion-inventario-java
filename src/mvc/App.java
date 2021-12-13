@@ -10,12 +10,19 @@ public class App {
     public static void main(String[] args) {
         
         //variables para configurar las tablas
- 
-        
+        String encabezadoClienteLista[]= {"tipo de Documento","Numero de documento","Nombre","Apellidos","Telefono","Email","Ciufaf","Direccion"};
+        String encabezadoProveedorLista[]= {"tipo de Documento","Numero de documento","Nombre comercial","Nombre","Apellidos","Telefono","Email","Ciufaf","Direccion"};
+
+        DefaultTableModel tablaClientelista = new DefaultTableModel();
+        DefaultTableModel tablaProveedorlista = new DefaultTableModel();
+
         // intancia modelo
-        Cliente cliente = new Cliente();
+        Cliente cliente = new Cliente(tablaClientelista);
         Empleado empleado = new Empleado();
-        Proveedor proveedor = new Proveedor();
+        Proveedor proveedor = new Proveedor(tablaProveedorlista);
+        
+        cliente.cargarEncabezado(encabezadoClienteLista);
+        proveedor.cargarEncabezado(encabezadoProveedorLista);
         
         //instancia vista
         PanelPrincipal Interfaz = new PanelPrincipal();
@@ -34,13 +41,14 @@ public class App {
                                                             vVentaLista,vVentaRegistro,
                                                             vProveedorLista,vProveedorRegistro,
                                                             vRepuestoLista,vRepuestoRegistro,
-                                                            cliente
+                                                            cliente, proveedor
         );
+        
         ControladorCliente ctrlCliente = new ControladorCliente(vClienteRegistro,cliente);
         ControladorProveedor ctrlproveedor = new ControladorProveedor(vProveedorRegistro,proveedor);
         
         
-
+        
         
         
         ctrl.iniciar();

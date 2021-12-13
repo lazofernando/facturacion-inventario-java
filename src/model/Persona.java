@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 public abstract class Persona {
     protected String tipoDocumento;
@@ -11,11 +12,15 @@ public abstract class Persona {
     protected String correo;
     protected String ciudad;
     protected String direccion;
+    protected DefaultTableModel tablalistar;
     
     public Persona(){
         
     }
     
+    public Persona(DefaultTableModel tablalistar){
+        this.tablalistar= tablalistar;
+    }
     public Persona( String tipoDocumento, 
                     String numeroDocumento, 
                     String nombre, 
@@ -23,7 +28,8 @@ public abstract class Persona {
                     String telefono, 
                     String correo, 
                     String ciudad, 
-                    String direccion
+                    String direccion,
+                    DefaultTableModel tablalistar
     ){
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
@@ -33,6 +39,7 @@ public abstract class Persona {
         this.correo = correo;
         this.ciudad = ciudad;
         this.direccion = direccion;
+        this.tablalistar = tablalistar;
     }
 
     public String getTipoDocumento() {
@@ -99,6 +106,20 @@ public abstract class Persona {
         this.direccion = direccion;
     }
     
-   public abstract void registrar();
-   public abstract String[] mostrarPorItem();
+
+
+    public DefaultTableModel getTablalistar() {
+        return tablalistar;
+    }
+
+    public void setTablalistar(DefaultTableModel tablalistar) {
+        this.tablalistar = tablalistar;
+    }
+    public void cargarEncabezado(String encabezado[]){
+        for (int i = 0; i < encabezado.length; i++) {
+            getTablalistar().addColumn(encabezado[i]);
+        }
+    }
+    public abstract void registrar();
+    public abstract String[] mostrarPorItem();
 }

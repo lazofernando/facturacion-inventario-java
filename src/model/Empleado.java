@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,7 +24,11 @@ public class Empleado extends Persona {
                     String telefono, 
                     String correo, 
                     String ciudad, 
-                    String direccion
+                    String direccion,
+                    String usuario,
+                    String cargo,
+                    String tienda,
+                    DefaultTableModel tablalistar
     ) {
         super(  tipoDocumento, 
                 numeroDocumento, 
@@ -32,7 +37,8 @@ public class Empleado extends Persona {
                 telefono, 
                 correo, 
                 ciudad, 
-                direccion);
+                direccion,
+                tablalistar);
         this.usuario=usuario;
         this.cargo = cargo;
         this.tienda = tienda;

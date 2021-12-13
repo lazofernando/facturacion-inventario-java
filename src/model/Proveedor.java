@@ -8,6 +8,7 @@ package model;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,8 +18,8 @@ public class Proveedor extends Persona{
     
     private String nombreComercial;
     
-    public Proveedor(){
-        
+    public Proveedor(DefaultTableModel tablalistar){
+        this.tablalistar=tablalistar;
     }
   
     public Proveedor(   String tipoDocumento, 
@@ -28,7 +29,9 @@ public class Proveedor extends Persona{
                         String telefono, 
                         String correo, 
                         String ciudad, 
-                        String direccion
+                        String direccion,
+                        String nombreComercial,
+                        DefaultTableModel tablalistar
     ) {
         super(  tipoDocumento, 
                 numeroDocumento, 
@@ -37,7 +40,8 @@ public class Proveedor extends Persona{
                 telefono, 
                 correo, 
                 ciudad, 
-                direccion);
+                direccion,
+                tablalistar);
         this.nombreComercial = nombreComercial;
     }
 
@@ -47,15 +51,15 @@ public class Proveedor extends Persona{
         try {
             Statement proveedorConexion =conexion.getConnection().createStatement();
             proveedorConexion.executeUpdate("INSERT INTO t_proveedor VALUES (NULL, '"+
-                                                                         getTipoDocumento()+"', '"+
-                                                                         getNumeroDocumento()+"', '"+
-                                                                         getNombreComercial()+"', '"+
-                                                                         getNombre()+"', '"+
-                                                                         getApellidos()+"', '"+
-                                                                         getTelefono()+"', '"+
-                                                                         getCorreo()+"', '"+
-                                                                         getCiudad()+"', '"+
-                                                                         getDireccion()+"')");
+                                                                                getTipoDocumento()+"', '"+
+                                                                                getNumeroDocumento()+"', '"+
+                                                                                getNombreComercial()+"', '"+
+                                                                                getNombre()+"', '"+
+                                                                                getApellidos()+"', '"+
+                                                                                getTelefono()+"', '"+
+                                                                                getCorreo()+"', '"+
+                                                                                getCiudad()+"', '"+
+                                                                                getDireccion()+"')");
                 
             JOptionPane.showMessageDialog(null, "Se ha registrado el proveedor exitosamente", "Proveedor-registro",JOptionPane.INFORMATION_MESSAGE);
             conexion.desconectar();

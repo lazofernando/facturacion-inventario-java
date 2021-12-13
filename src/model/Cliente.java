@@ -2,6 +2,7 @@ package model;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,6 +15,10 @@ public class Cliente extends Persona{
         
     }
     
+    public Cliente(DefaultTableModel tablalistar){
+        this.tablalistar =tablalistar;
+    }
+    
     public Cliente( String tipoDocumento, 
                     String numeroDocumento, 
                     String nombre, 
@@ -21,7 +26,9 @@ public class Cliente extends Persona{
                     String telefono, 
                     String correo, 
                     String ciudad, 
-                    String direccion
+                    String direccion,
+                    String nombreComercial,
+                    DefaultTableModel tablalistar
     ) {
         super(  tipoDocumento, 
                 numeroDocumento, 
@@ -30,7 +37,8 @@ public class Cliente extends Persona{
                 telefono, 
                 correo, 
                 ciudad, 
-                direccion);
+                direccion,
+                tablalistar);
         this.nombreComercial = nombreComercial;
     }
     
