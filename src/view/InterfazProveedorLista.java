@@ -30,7 +30,7 @@ public class InterfazProveedorLista extends javax.swing.JPanel {
         btnProveedorListaActualizar = new javax.swing.JButton();
         btnProveedorListaRegresar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tbProveedorListaLista = new javax.swing.JTable();
+        tbProveedorLista = new javax.swing.JTable();
         txtProveedorListaBuscar = new javax.swing.JTextField();
         btnProveedorListaBuscar = new javax.swing.JButton();
 
@@ -38,15 +38,15 @@ public class InterfazProveedorLista extends javax.swing.JPanel {
 
         btnProveedorListaRegresar.setText("Regresar");
 
-        tbProveedorListaLista.setModel(new javax.swing.table.DefaultTableModel(
+        tbProveedorLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "RUT", "Nombre de proveedor", "Email", "Dirección", "Teléfono", "Descripcion", "Fecha de ingreso"
+
             }
         ));
-        jScrollPane1.setViewportView(tbProveedorListaLista);
+        jScrollPane1.setViewportView(tbProveedorLista);
 
         btnProveedorListaBuscar.setText("Buscar");
 
@@ -55,36 +55,33 @@ public class InterfazProveedorLista extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnProveedorListaActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(txtProveedorListaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(btnProveedorListaBuscar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnProveedorListaRegresar))
+                .addContainerGap(80, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtProveedorListaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnProveedorListaBuscar)
+                        .addGap(774, 774, 774)
+                        .addComponent(btnProveedorListaRegresar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnProveedorListaActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1061, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(71, 71, 71))
+                .addGap(73, 73, 73))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtProveedorListaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnProveedorListaBuscar)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(btnProveedorListaRegresar)))
-                .addGap(12, 12, 12)
+                .addGap(74, 74, 74)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnProveedorListaRegresar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtProveedorListaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnProveedorListaBuscar)))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(18, 18, 18)
                 .addComponent(btnProveedorListaActualizar)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -94,7 +91,7 @@ public class InterfazProveedorLista extends javax.swing.JPanel {
     public javax.swing.JButton btnProveedorListaBuscar;
     public javax.swing.JButton btnProveedorListaRegresar;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JTable tbProveedorListaLista;
+    public javax.swing.JTable tbProveedorLista;
     public javax.swing.JTextField txtProveedorListaBuscar;
     // End of variables declaration//GEN-END:variables
 }

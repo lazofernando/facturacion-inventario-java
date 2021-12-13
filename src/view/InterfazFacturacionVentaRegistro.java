@@ -16,6 +16,9 @@ public class InterfazFacturacionVentaRegistro extends javax.swing.JPanel {
      */
     public InterfazFacturacionVentaRegistro() {
         initComponents();
+        cboxFacturacionVentaRegistroTipoDocumento.addItem("DNI");
+        cboxFacturacionVentaRegistroTipoDocumento.addItem("CE");
+        cboxFacturacionVentaRegistroTipoDocumento.addItem("Pasaporte");
     }
 
     /**
@@ -42,35 +45,42 @@ public class InterfazFacturacionVentaRegistro extends javax.swing.JPanel {
         tbFacturacionRegistroVentaListaRepuesto = new javax.swing.JTable();
         txtFacturacionRegistroVentaMontoTotal = new javax.swing.JTextField();
         btnFacturacionRegistroVentaSumarPedido = new javax.swing.JButton();
-        txtFacturacionRegistroVentaBuscar = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        btnFacturacionRegistroVentaBuscar = new javax.swing.JButton();
+        btnFacturacionVentaRegistroBuscar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         btnFacturacionRegistroVentaTomar = new javax.swing.JButton();
         txtFacturacionRegistroVentaBuscarRepuesto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         btnFacturacionRegistroVentaAnular = new javax.swing.JButton();
         btnFacturacionRegistroVentaRegresar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tbFacturacionRegistroVentaListaPedido = new javax.swing.JTable();
         jSeparator2 = new javax.swing.JSeparator();
         btnFacturacionRegistroVentaAnadir = new javax.swing.JButton();
         btnFacturacionRegistroVentaRestarItem = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jLabel9 = new javax.swing.JLabel();
-        txtClienteRegistroEmail1 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        txtFacturacionRegistroVentaTelefono = new javax.swing.JTextField();
-        txtFacturacionRegistroVentaDireccion = new javax.swing.JTextField();
-        txtFacturacionRegistroVentaTipoDoc = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        btnFacturacionRegistroVentaGuardar = new javax.swing.JButton();
-        txtFacturacionRegistroVentaNombre = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 10), new java.awt.Dimension(0, 10), new java.awt.Dimension(32767, 10));
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 10), new java.awt.Dimension(0, 10), new java.awt.Dimension(32767, 10));
+        txtFacturacionVentaRegistroNombreComercial = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        btnFacturacionVentaRegistroEliminar = new javax.swing.JButton();
+        cboxFacturacionVentaRegistroTipoDocumento = new javax.swing.JComboBox<>();
+        txtFacturacionVentaRegistroNombre = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtFacturacionVentaRegistroApellido = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        txtFacturacionVentaRegistroEmail = new javax.swing.JTextField();
+        txtFacturacionVentaRegistroTelefono = new javax.swing.JTextField();
+        txtFacturacionVentaRegistroCiudad = new javax.swing.JTextField();
+        txtFacturacionVentaRegistroNumeroDocumento = new javax.swing.JTextField();
+        txtFacturacionVentaRegistroDireccion = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        btnFacturacionVentaRegistroGuardar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbFacturacionRegistroVentaListaPedido1 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tbFacturacionVentaRegistroCodigoCliente = new javax.swing.JTable();
 
         jLabel2.setText("Email");
 
@@ -132,12 +142,10 @@ public class InterfazFacturacionVentaRegistro extends javax.swing.JPanel {
 
         btnFacturacionRegistroVentaSumarPedido.setText("Sumar pedido");
 
-        jLabel5.setText("Código de venta");
-
-        btnFacturacionRegistroVentaBuscar.setText("Buscar");
-        btnFacturacionRegistroVentaBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnFacturacionVentaRegistroBuscar.setText("Buscar");
+        btnFacturacionVentaRegistroBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFacturacionRegistroVentaBuscarActionPerformed(evt);
+                btnFacturacionVentaRegistroBuscarActionPerformed(evt);
             }
         });
 
@@ -159,7 +167,87 @@ public class InterfazFacturacionVentaRegistro extends javax.swing.JPanel {
 
         jLabel7.setText("Pedido del cliente");
 
-        tbFacturacionRegistroVentaListaPedido.setModel(new javax.swing.table.DefaultTableModel(
+        btnFacturacionRegistroVentaAnadir.setText("Añadir item");
+
+        btnFacturacionRegistroVentaRestarItem.setText("Restar pedido");
+        btnFacturacionRegistroVentaRestarItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturacionRegistroVentaRestarItemActionPerformed(evt);
+            }
+        });
+
+        txtFacturacionVentaRegistroNombreComercial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFacturacionVentaRegistroNombreComercialActionPerformed(evt);
+            }
+        });
+
+        btnFacturacionVentaRegistroEliminar.setText("Eliminar");
+
+        cboxFacturacionVentaRegistroTipoDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxFacturacionVentaRegistroTipoDocumentoActionPerformed(evt);
+            }
+        });
+
+        txtFacturacionVentaRegistroNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFacturacionVentaRegistroNombreActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Apellidos");
+
+        jLabel14.setText("Nombre");
+
+        txtFacturacionVentaRegistroApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFacturacionVentaRegistroApellidoActionPerformed(evt);
+            }
+        });
+
+        jLabel15.setText("Email");
+
+        jLabel16.setText("Dirección");
+
+        jLabel17.setText("Teléfono");
+
+        txtFacturacionVentaRegistroEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFacturacionVentaRegistroEmailActionPerformed(evt);
+            }
+        });
+
+        txtFacturacionVentaRegistroTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFacturacionVentaRegistroTelefonoActionPerformed(evt);
+            }
+        });
+
+        txtFacturacionVentaRegistroCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFacturacionVentaRegistroCiudadActionPerformed(evt);
+            }
+        });
+
+        txtFacturacionVentaRegistroDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFacturacionVentaRegistroDireccionActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setText("Ciudad");
+
+        jLabel19.setText("Nombre comercial");
+
+        btnFacturacionVentaRegistroGuardar.setText("Guardar");
+        btnFacturacionVentaRegistroGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFacturacionVentaRegistroGuardarActionPerformed(evt);
+            }
+        });
+
+        tbFacturacionRegistroVentaListaPedido1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -172,212 +260,202 @@ public class InterfazFacturacionVentaRegistro extends javax.swing.JPanel {
                 "Código de repuesto", "Nombre de repuesto", "Marca", "Unidad", "Proveedor", "Costo unitario", "Cantidad"
             }
         ));
-        jScrollPane1.setViewportView(tbFacturacionRegistroVentaListaPedido);
+        jScrollPane3.setViewportView(tbFacturacionRegistroVentaListaPedido1);
 
-        btnFacturacionRegistroVentaAnadir.setText("Añadir item");
+        tbFacturacionVentaRegistroCodigoCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        btnFacturacionRegistroVentaRestarItem.setText("Restar pedido");
-        btnFacturacionRegistroVentaRestarItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFacturacionRegistroVentaRestarItemActionPerformed(evt);
+            },
+            new String [] {
+                "Código de venta"
             }
-        });
-
-        jButton1.setText("DNI/RUT");
-
-        jLabel9.setText("Email");
-
-        txtClienteRegistroEmail1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtClienteRegistroEmail1ActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setText("Teléfono");
-
-        txtFacturacionRegistroVentaTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFacturacionRegistroVentaTelefonoActionPerformed(evt);
-            }
-        });
-
-        txtFacturacionRegistroVentaDireccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFacturacionRegistroVentaDireccionActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setText("Dirección");
-
-        btnFacturacionRegistroVentaGuardar.setText("Guardar");
-        btnFacturacionRegistroVentaGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFacturacionRegistroVentaGuardarActionPerformed(evt);
-            }
-        });
-
-        txtFacturacionRegistroVentaNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFacturacionRegistroVentaNombreActionPerformed(evt);
-            }
-        });
-
-        jLabel12.setText("Nombres y apellidos//Nombre empresa");
+        ));
+        jScrollPane4.setViewportView(tbFacturacionVentaRegistroCodigoCliente);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtFacturacionRegistroVentaTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel12)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(48, 48, 48)
-                                .addComponent(txtFacturacionRegistroVentaTipoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtFacturacionRegistroVentaNombre)
-                            .addComponent(txtClienteRegistroEmail1)
-                            .addComponent(jLabel10)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnFacturacionRegistroVentaGuardar))
-                            .addComponent(txtFacturacionRegistroVentaDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtFacturacionRegistroVentaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnFacturacionRegistroVentaBuscar)))
+                .addGap(47, 1224, Short.MAX_VALUE)
+                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnFacturacionVentaRegistroBuscar)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(btnFacturacionVentaRegistroEliminar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                            .addComponent(btnFacturacionVentaRegistroGuardar))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel19)
+                                .addComponent(jLabel14)
+                                .addComponent(jLabel13)
+                                .addComponent(jLabel17)
+                                .addComponent(jLabel15)
+                                .addComponent(jLabel18)
+                                .addComponent(jLabel16))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtFacturacionVentaRegistroNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                                .addComponent(txtFacturacionVentaRegistroApellido, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtFacturacionVentaRegistroTelefono, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtFacturacionVentaRegistroEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtFacturacionVentaRegistroCiudad, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtFacturacionVentaRegistroDireccion, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtFacturacionVentaRegistroNombreComercial)))
+                        .addComponent(jSeparator3))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(cboxFacturacionVentaRegistroTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtFacturacionVentaRegistroNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(75, 75, 75)
+                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(747, 747, 747)
+                        .addComponent(btnFacturacionRegistroVentaRegresar)
+                        .addGap(11, 128, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(btnFacturacionRegistroVentaBuscarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtFacturacionRegistroVentaBuscarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(btnFacturacionRegistroVentaAnular)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btnFacturacionRegistroVentaTomar))
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnFacturacionRegistroVentaAnadir, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel7)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(btnFacturacionRegistroVentaRestarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(btnFacturacionRegistroVentaSumarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel6)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(txtFacturacionRegistroVentaMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnFacturacionRegistroVentaBuscarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtFacturacionRegistroVentaBuscarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnFacturacionRegistroVentaRegresar)
-                                .addGap(11, 11, 11)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 918, Short.MAX_VALUE)
-                        .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(94, 94, 94))))
+                                .addComponent(btnFacturacionRegistroVentaAnular)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnFacturacionRegistroVentaTomar))
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFacturacionRegistroVentaAnadir, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel7)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnFacturacionRegistroVentaRestarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btnFacturacionRegistroVentaSumarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(332, 332, 332)
+                                    .addComponent(jLabel6)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtFacturacionRegistroVentaMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(394, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 817, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(107, 107, 107)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(filler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(46, 46, 46)
+                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(jLabel8)
+                                                        .addComponent(btnFacturacionRegistroVentaBuscarRepuesto)
+                                                        .addComponent(txtFacturacionRegistroVentaBuscarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(btnFacturacionRegistroVentaRegresar))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                                            .addComponent(btnFacturacionRegistroVentaAnadir)
+                                            .addGap(18, 32, Short.MAX_VALUE)
+                                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(244, 244, 244))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(342, 342, 342)
+                                            .addComponent(jLabel7)
+                                            .addGap(153, 153, 153)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(btnFacturacionRegistroVentaRestarItem)
+                                                .addComponent(btnFacturacionRegistroVentaSumarPedido)
+                                                .addComponent(txtFacturacionRegistroVentaMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel6))
+                                            .addGap(0, 0, Short.MAX_VALUE)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(46, 46, 46)
+                                        .addGap(55, 55, 55)
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel8)
-                                            .addComponent(btnFacturacionRegistroVentaBuscarRepuesto)
-                                            .addComponent(txtFacturacionRegistroVentaBuscarRepuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(btnFacturacionRegistroVentaRegresar))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                                .addComponent(btnFacturacionRegistroVentaAnadir)
-                                .addGap(18, 32, Short.MAX_VALUE)
-                                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(244, 244, 244))
+                                            .addComponent(txtFacturacionVentaRegistroNumeroDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cboxFacturacionVentaRegistroTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(46, 46, 46)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnFacturacionRegistroVentaAnular)
+                                    .addComponent(btnFacturacionRegistroVentaTomar)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(342, 342, 342)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(btnFacturacionVentaRegistroBuscar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(78, 78, 78)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel19)
+                                    .addComponent(txtFacturacionVentaRegistroNombreComercial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnFacturacionRegistroVentaRestarItem)
-                                    .addComponent(btnFacturacionRegistroVentaSumarPedido)
-                                    .addComponent(txtFacturacionRegistroVentaMontoTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))))
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnFacturacionRegistroVentaAnular)
-                            .addComponent(btnFacturacionRegistroVentaTomar)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtFacturacionRegistroVentaBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFacturacionRegistroVentaBuscar))
-                        .addGap(12, 12, 12)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(filler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtFacturacionRegistroVentaTipoDoc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
-                        .addGap(19, 19, Short.MAX_VALUE)
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFacturacionRegistroVentaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtClienteRegistroEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFacturacionRegistroVentaTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFacturacionRegistroVentaDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(btnFacturacionRegistroVentaGuardar)))
-                .addGap(39, 39, 39))
+                                    .addComponent(txtFacturacionVentaRegistroNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtFacturacionVentaRegistroApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtFacturacionVentaRegistroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel17))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtFacturacionVentaRegistroEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtFacturacionVentaRegistroCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel18))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtFacturacionVentaRegistroDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel16))
+                                .addGap(40, 40, 40)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnFacturacionVentaRegistroGuardar)
+                                    .addComponent(btnFacturacionVentaRegistroEliminar))))
+                        .addGap(39, 39, 39))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(383, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(167, 167, 167)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnFacturacionRegistroVentaBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionRegistroVentaBuscarActionPerformed
+    private void btnFacturacionVentaRegistroBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionVentaRegistroBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFacturacionRegistroVentaBuscarActionPerformed
+    }//GEN-LAST:event_btnFacturacionVentaRegistroBuscarActionPerformed
 
     private void txtFacturacionRegistroVentaBuscarRepuestoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionRegistroVentaBuscarRepuestoActionPerformed
         // TODO add your handling code here:
@@ -407,25 +485,41 @@ public class InterfazFacturacionVentaRegistro extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtClienteRegistroNombreActionPerformed
 
-    private void txtClienteRegistroEmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteRegistroEmail1ActionPerformed
+    private void txtFacturacionVentaRegistroNombreComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionVentaRegistroNombreComercialActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtClienteRegistroEmail1ActionPerformed
+    }//GEN-LAST:event_txtFacturacionVentaRegistroNombreComercialActionPerformed
 
-    private void txtFacturacionRegistroVentaTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionRegistroVentaTelefonoActionPerformed
+    private void cboxFacturacionVentaRegistroTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxFacturacionVentaRegistroTipoDocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFacturacionRegistroVentaTelefonoActionPerformed
+    }//GEN-LAST:event_cboxFacturacionVentaRegistroTipoDocumentoActionPerformed
 
-    private void txtFacturacionRegistroVentaDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionRegistroVentaDireccionActionPerformed
+    private void txtFacturacionVentaRegistroNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionVentaRegistroNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFacturacionRegistroVentaDireccionActionPerformed
+    }//GEN-LAST:event_txtFacturacionVentaRegistroNombreActionPerformed
 
-    private void btnFacturacionRegistroVentaGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionRegistroVentaGuardarActionPerformed
-
-    }//GEN-LAST:event_btnFacturacionRegistroVentaGuardarActionPerformed
-
-    private void txtFacturacionRegistroVentaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionRegistroVentaNombreActionPerformed
+    private void txtFacturacionVentaRegistroApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionVentaRegistroApellidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFacturacionRegistroVentaNombreActionPerformed
+    }//GEN-LAST:event_txtFacturacionVentaRegistroApellidoActionPerformed
+
+    private void txtFacturacionVentaRegistroEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionVentaRegistroEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFacturacionVentaRegistroEmailActionPerformed
+
+    private void txtFacturacionVentaRegistroTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionVentaRegistroTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFacturacionVentaRegistroTelefonoActionPerformed
+
+    private void txtFacturacionVentaRegistroCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionVentaRegistroCiudadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFacturacionVentaRegistroCiudadActionPerformed
+
+    private void txtFacturacionVentaRegistroDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFacturacionVentaRegistroDireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFacturacionVentaRegistroDireccionActionPerformed
+
+    private void btnFacturacionVentaRegistroGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturacionVentaRegistroGuardarActionPerformed
+
+    }//GEN-LAST:event_btnFacturacionVentaRegistroGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -433,45 +527,52 @@ public class InterfazFacturacionVentaRegistro extends javax.swing.JPanel {
     public javax.swing.JButton btnClienteRegistroGuardar;
     public javax.swing.JButton btnFacturacionRegistroVentaAnadir;
     public javax.swing.JButton btnFacturacionRegistroVentaAnular;
-    public javax.swing.JButton btnFacturacionRegistroVentaBuscar;
     public javax.swing.JButton btnFacturacionRegistroVentaBuscarRepuesto;
-    public javax.swing.JButton btnFacturacionRegistroVentaGuardar;
     public javax.swing.JButton btnFacturacionRegistroVentaRegresar;
     public javax.swing.JButton btnFacturacionRegistroVentaRestarItem;
     public javax.swing.JButton btnFacturacionRegistroVentaSumarPedido;
     public javax.swing.JButton btnFacturacionRegistroVentaTomar;
+    public javax.swing.JButton btnFacturacionVentaRegistroBuscar;
+    public javax.swing.JButton btnFacturacionVentaRegistroEliminar;
+    public javax.swing.JButton btnFacturacionVentaRegistroGuardar;
+    public javax.swing.JComboBox<String> cboxFacturacionVentaRegistroTipoDocumento;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler3;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator2;
-    public javax.swing.JTable tbFacturacionRegistroVentaListaPedido;
+    private javax.swing.JSeparator jSeparator3;
+    public javax.swing.JTable tbFacturacionRegistroVentaListaPedido1;
     public javax.swing.JTable tbFacturacionRegistroVentaListaRepuesto;
+    public javax.swing.JTable tbFacturacionVentaRegistroCodigoCliente;
     public javax.swing.JTextField txtClienteRegistroDireccion;
     public javax.swing.JTextField txtClienteRegistroEmail;
-    public javax.swing.JTextField txtClienteRegistroEmail1;
     public javax.swing.JTextField txtClienteRegistroNombre;
     public javax.swing.JTextField txtClienteRegistroTelefono;
-    public javax.swing.JTextField txtFacturacionRegistroVentaBuscar;
     public javax.swing.JTextField txtFacturacionRegistroVentaBuscarRepuesto;
-    public javax.swing.JTextField txtFacturacionRegistroVentaDireccion;
     public javax.swing.JTextField txtFacturacionRegistroVentaMontoTotal;
-    public javax.swing.JTextField txtFacturacionRegistroVentaNombre;
-    public javax.swing.JTextField txtFacturacionRegistroVentaTelefono;
-    public javax.swing.JTextField txtFacturacionRegistroVentaTipoDoc;
+    public javax.swing.JTextField txtFacturacionVentaRegistroApellido;
+    public javax.swing.JTextField txtFacturacionVentaRegistroCiudad;
+    public javax.swing.JTextField txtFacturacionVentaRegistroDireccion;
+    public javax.swing.JTextField txtFacturacionVentaRegistroEmail;
+    public javax.swing.JTextField txtFacturacionVentaRegistroNombre;
+    public javax.swing.JTextField txtFacturacionVentaRegistroNombreComercial;
+    public javax.swing.JTextField txtFacturacionVentaRegistroNumeroDocumento;
+    public javax.swing.JTextField txtFacturacionVentaRegistroTelefono;
     // End of variables declaration//GEN-END:variables
 }

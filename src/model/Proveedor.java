@@ -1,27 +1,34 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package model;
 
-import java.sql.*;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author fer
  */
-public class Cliente extends Persona{
+public class Proveedor extends Persona{
+    
     private String nombreComercial;
     
-    public Cliente(){
+    public Proveedor(){
         
     }
-    
-    public Cliente( String tipoDocumento, 
-                    String numeroDocumento, 
-                    String nombre, 
-                    String apellidos, 
-                    String telefono, 
-                    String correo, 
-                    String ciudad, 
-                    String direccion
+  
+    public Proveedor(   String tipoDocumento, 
+                        String numeroDocumento, 
+                        String nombre, 
+                        String apellidos, 
+                        String telefono, 
+                        String correo, 
+                        String ciudad, 
+                        String direccion
     ) {
         super(  tipoDocumento, 
                 numeroDocumento, 
@@ -33,20 +40,13 @@ public class Cliente extends Persona{
                 direccion);
         this.nombreComercial = nombreComercial;
     }
-    
-    
-    
-    public void registrarCliente(){
-
-    }
-
 
     @Override
     public void registrar() {
         Conexion conexion =new Conexion();
         try {
-            Statement personaConexion =conexion.getConnection().createStatement();
-            personaConexion.executeUpdate("INSERT INTO t_cliente VALUES (NULL, '"+
+            Statement proveedorConexion =conexion.getConnection().createStatement();
+            proveedorConexion.executeUpdate("INSERT INTO t_proveedor VALUES (NULL, '"+
                                                                          getTipoDocumento()+"', '"+
                                                                          getNumeroDocumento()+"', '"+
                                                                          getNombreComercial()+"', '"+
@@ -57,19 +57,13 @@ public class Cliente extends Persona{
                                                                          getCiudad()+"', '"+
                                                                          getDireccion()+"')");
                 
-            JOptionPane.showMessageDialog(null, "Se ha registrado el cliente exitosamente", "Cliente-registro",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Se ha registrado el proveedor exitosamente", "Proveedor-registro",JOptionPane.INFORMATION_MESSAGE);
             conexion.desconectar();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(null, "No se pudo registrar", "Cliente-registro",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No se pudo registrar", "Proveedor-registro",JOptionPane.INFORMATION_MESSAGE);
         }
     }
-
-    @Override
-    public String[] mostrarPorItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
 
     public String getNombreComercial() {
         return this.nombreComercial;
@@ -78,4 +72,11 @@ public class Cliente extends Persona{
     public void setNombreComercial(String nombreComercial) {
         this.nombreComercial = nombreComercial;
     }
+
+    @Override
+    public String[] mostrarPorItem() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 }

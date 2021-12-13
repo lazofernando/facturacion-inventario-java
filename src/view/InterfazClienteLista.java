@@ -49,7 +49,7 @@ public class InterfazClienteLista extends javax.swing.JPanel {
 
             },
             new String [] {
-                "DNI/RUT", "Nombres y apellidos", "Email", "Teléfono", "Dirección"
+
             }
         ));
         jScrollPane1.setViewportView(tbClienteLista);

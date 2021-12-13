@@ -3,35 +3,68 @@ package controller;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import view.PanelPrincipal;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import model.Cliente;
+import model.Conexion;
+import view.*;
 
 public class ControladorInterfaz implements ActionListener{
+    
     private PanelPrincipal interfaz;
-    private Object clienteRegistro;
-    private Object clienteLista;
-    private Object ventaRegistro;
-    private Object ventaLista;
-    private Object proveedorRegistro;
-    private Object proveedorLista;
-    private Object repuestoRegistro;
-    private Object repuestoLista;
+    private InterfazClienteLista clienteLista;
+    private InterfazClienteRegistro clienteRegistro;
+    private InterfazFacturacionVentaLista ventaLista;
+    private InterfazFacturacionVentaRegistro ventaRegistro;
+    private InterfazProveedorLista proveedorLista;
+    private InterfazProveedorRegistro proveedorRegistro;
+    private InterfazRepuestoLista repuestoLista;
+    private InterfazRepuestoRegistro repuestoRegistro;
+
+    private Cliente cliente;
+   
+    //variables para la vista clientelista 
+    String sentenciaSQL_obtenerClienteLista ="select cli_tipo_doc, cli_num_doc, cli_nomb, cli_ape, cli_telef, cli_mail, cli_nomb_ciudad, cli_direc from t_cliente;";
+    String campoClienteLista[]= {"cli_tipo_doc","cli_num_doc","cli_nomb","cli_ape","cli_telef","cli_mail","cli_nomb_ciudad","cli_direc"};
+    String messageDialogTryClienteLista = "Se ha obtenido la lista de clientes exitosamente";
+    String messageDialogCathClienteLista = "No se pudo obtener la lista de clientes";
+    String tituloVentanaClienteLista = "Cliente-lista";
+    String encabezadoClienteLista[]= {"tipo de Documento","Numero de documento","Nombre","Apellidos","Telefono","Email","Ciufaf","Direccion"};
+
+    
+    //variables para la vista proveedorlista
+    String sentenciaSQL_obtenerProveedorLista ="select prov_tipo_doc, prov_num_doc, prov_nomb_comercial, prov_nomb, prov_ape, prov_telef, prov_mail, prov_nomb_ciudad, prov_direc from t_proveedor;";
+    String campoProveedorLista[]= {"prov_tipo_doc", "prov_num_doc", "prov_nomb_comercial", "prov_nomb", "prov_ape", "prov_telef", "prov_mail", "prov_nomb_ciudad", "prov_direc"};
+    String messageDialogTryProveedorLista = "Se ha obtenido la lista de proveedores exitosamente";
+    String messageDialogCathProveedorLista = "No se pudo obtener la lista de Proveedor";
+    String tituloVentanaProveedorLista = "Proveedor-lista";
+    String encabezadoProveedorLista[]= {"tipo de Documento","Numero de documento","Nombre comercial","Nombre","Apellidos","Telefono","Email","Ciufaf","Direccion"};
+ 
 
     public ControladorInterfaz( PanelPrincipal interfaz, 
-                                Object clienteLista, Object clienteRegistro, 
-                                Object ventaLista, Object ventaRegistro, 
-                                Object proveedorLista, Object proveedorRegistro, 
-                                Object repuestoLista, Object repuestoRegistro
+                                InterfazClienteLista clienteLista, InterfazClienteRegistro clienteRegistro, 
+                                InterfazFacturacionVentaLista ventaLista, InterfazFacturacionVentaRegistro ventaRegistro, 
+                                InterfazProveedorLista proveedorLista, InterfazProveedorRegistro proveedorRegistro, 
+                                InterfazRepuestoLista repuestoLista, InterfazRepuestoRegistro repuestoRegistro, 
+                                Cliente cliente
     ) {
         this.interfaz = interfaz;
-        this.clienteRegistro = clienteRegistro;
         this.clienteLista = clienteLista;
-        this.ventaRegistro = ventaRegistro;
+        this.clienteRegistro = clienteRegistro;
         this.ventaLista = ventaLista;
-        this.proveedorRegistro = proveedorRegistro;
+        this.ventaRegistro = ventaRegistro;
         this.proveedorLista = proveedorLista;
-        this.repuestoRegistro = repuestoRegistro;
+        this.proveedorRegistro = proveedorRegistro;
         this.repuestoLista = repuestoLista;
+        this.repuestoRegistro = repuestoRegistro;
+        this.cliente = cliente;
+        
         this.interfaz.iRegistrarCliente.addActionListener(this);
         this.interfaz.iListarCliente.addActionListener(this);
         this.interfaz.iRegistrarRepuesto.addActionListener(this);
@@ -44,114 +77,57 @@ public class ControladorInterfaz implements ActionListener{
         
     @Override
     public void actionPerformed(ActionEvent ae) {
-//        for (int i = 0; i < arr.length; i++) {
-//            Object object = arr[i];
-//            
-//        }
         if (ae.getSource() ==this.interfaz.iListarCliente) {
-            MostrarInterfaz((JPanel) getClienteLista());
+            DefaultTableModel modeloClienteLista =new DefaultTableModel(null,encabezadoClienteLista);
+            MostrarInterfaz(getClienteLista());
             interfaz.setTitle("Lista de clientes");
+            mostrarLista(   sentenciaSQL_obtenerClienteLista,
+                            campoClienteLista, 
+                            messageDialogTryClienteLista, 
+                            messageDialogCathClienteLista, 
+                            tituloVentanaClienteLista, 
+                            modeloClienteLista,
+                            getClienteLista().tbClienteLista);
         }
         if (ae.getSource() ==this.interfaz.iRegistrarCliente) {
-            MostrarInterfaz((JPanel) getClienteRegistro());
+            MostrarInterfaz(getClienteRegistro());
             interfaz.setTitle("Registrar cliente");
+
         }
         if (ae.getSource() ==this.interfaz.iListaProveedores) {
-            MostrarInterfaz((JPanel) getProveedorLista());
+            DefaultTableModel modeloProveedorLista =new DefaultTableModel(null,encabezadoProveedorLista);
+            System.out.println(encabezadoProveedorLista);
+            System.out.println(encabezadoClienteLista);
+            MostrarInterfaz(getProveedorLista());
             interfaz.setTitle("Lista de proveedores");
+            mostrarLista(   sentenciaSQL_obtenerProveedorLista,
+                            campoProveedorLista, 
+                            messageDialogTryProveedorLista, 
+                            messageDialogCathProveedorLista, 
+                            tituloVentanaProveedorLista, 
+                            modeloProveedorLista,
+                            getProveedorLista().tbProveedorLista);
         }    
         if (ae.getSource() ==this.interfaz.iRegistrarProveedor) {
-            MostrarInterfaz((JPanel) getProveedorRegistro());
+            MostrarInterfaz(getProveedorRegistro());
             interfaz.setTitle("Registrar Proveedor");
         }    
         if (ae.getSource() ==this.interfaz.iListaRepuesto) {
-            MostrarInterfaz((JPanel) getRepuestoLista());
+            MostrarInterfaz(getRepuestoLista());
             interfaz.setTitle("Registrar repuesto");
         }
         if (ae.getSource() ==this.interfaz.iRegistrarRepuesto) {
-            MostrarInterfaz((JPanel) getRepuestoRegistro());
+            MostrarInterfaz(getRepuestoRegistro());
             interfaz.setTitle("Lista de repuesto");
         }  
         if (ae.getSource() ==this.interfaz.iListaVentas) {
-            MostrarInterfaz((JPanel) getVentaLista());
+            MostrarInterfaz(getVentaLista());
             interfaz.setTitle("Registrar repuesto");
         }
         if (ae.getSource() ==this.interfaz.iRegistrarVenta) {
-            MostrarInterfaz((JPanel) getVentaRegistro());
+            MostrarInterfaz(getVentaRegistro());
             interfaz.setTitle("Lista de repuesto");
         }      
-    }
-
-    public PanelPrincipal getInterfaz() {
-        return interfaz;
-    }
-
-    public void setInterfaz(PanelPrincipal interfaz) {
-        this.interfaz = interfaz;
-    }
-
-    public Object getClienteRegistro() {
-        return clienteRegistro;
-    }
-
-    public void setClienteRegistro(Object clienteRegistro) {
-        this.clienteRegistro = clienteRegistro;
-    }
-
-    public Object getClienteLista() {
-        return clienteLista;
-    }
-
-    public void setClienteLista(Object clienteLista) {
-        this.clienteLista = clienteLista;
-    }
-
-    public Object getVentaRegistro() {
-        return ventaRegistro;
-    }
-
-    public void setVentaRegistro(Object ventaRegistro) {
-        this.ventaRegistro = ventaRegistro;
-    }
-
-    public Object getVentaLista() {
-        return ventaLista;
-    }
-
-    public void setVentaLista(Object ventaLista) {
-        this.ventaLista = ventaLista;
-    }
-
-    public Object getProveedorRegistro() {
-        return proveedorRegistro;
-    }
-
-    public void setProveedorRegistro(Object proveedorRegistro) {
-        this.proveedorRegistro = proveedorRegistro;
-    }
-
-    public Object getProveedorLista() {
-        return proveedorLista;
-    }
-
-    public void setProveedorLista(Object proveedorLista) {
-        this.proveedorLista = proveedorLista;
-    }
-
-    public Object getRepuestoRegistro() {
-        return repuestoRegistro;
-    }
-
-    public void setRepuestoRegistro(Object repuestoRegistro) {
-        this.repuestoRegistro = repuestoRegistro;
-    }
-
-    public Object getRepuestoLista() {
-        return repuestoLista;
-    }
-
-    public void setRepuestoLista(Object repuestoLista) {
-        this.repuestoLista = repuestoLista;
     }
 
     public void iniciar(){
@@ -170,4 +146,117 @@ public class ControladorInterfaz implements ActionListener{
         interfaz.contenido.repaint();
     }
     
+    
+    public void mostrarLista(   String sentencia_sql, 
+                                String c[], 
+                                String messageDialogTry, 
+                                String messageDialogCath, 
+                                String tituloVentana, 
+                                DefaultTableModel modeloTabla,
+                                JTable tablaVista) {
+        Conexion conexion =new Conexion();
+
+        String registro[] =new String[c.length] ;
+
+        try {
+            Statement listaConexion =conexion.getConnection().createStatement();
+            ResultSet rs = listaConexion.executeQuery(sentencia_sql);
+            
+            while (rs.next()) {
+                for (int i = 0; i < c.length; i++) {
+                    registro[i] =rs.getString(c[i]);
+                }
+                modeloTabla.addRow(registro);
+            }
+            tablaVista.setModel(modeloTabla);
+            JOptionPane.showMessageDialog(null, messageDialogTry, tituloVentana,JOptionPane.INFORMATION_MESSAGE);
+            conexion.desconectar();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, messageDialogCath, tituloVentana,JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+    
+    
+    
+    
+    public PanelPrincipal getInterfaz() {
+        return interfaz;
+    }
+
+    public void setInterfaz(PanelPrincipal interfaz) {
+        this.interfaz = interfaz;
+    }
+
+    public InterfazClienteLista getClienteLista() {
+        return clienteLista;
+    }
+
+    public void setClienteLista(InterfazClienteLista clienteLista) {
+        this.clienteLista = clienteLista;
+    }
+
+    public InterfazClienteRegistro getClienteRegistro() {
+        return clienteRegistro;
+    }
+
+    public void setClienteRegistro(InterfazClienteRegistro clienteRegistro) {
+        this.clienteRegistro = clienteRegistro;
+    }
+
+    public InterfazFacturacionVentaLista getVentaLista() {
+        return ventaLista;
+    }
+
+    public void setVentaLista(InterfazFacturacionVentaLista ventaLista) {
+        this.ventaLista = ventaLista;
+    }
+
+    public InterfazFacturacionVentaRegistro getVentaRegistro() {
+        return ventaRegistro;
+    }
+
+    public void setVentaRegistro(InterfazFacturacionVentaRegistro ventaRegistro) {
+        this.ventaRegistro = ventaRegistro;
+    }
+
+    public InterfazProveedorLista getProveedorLista() {
+        return proveedorLista;
+    }
+
+    public void setProveedorLista(InterfazProveedorLista proveedorLista) {
+        this.proveedorLista = proveedorLista;
+    }
+
+    public InterfazProveedorRegistro getProveedorRegistro() {
+        return proveedorRegistro;
+    }
+
+    public void setProveedorRegistro(InterfazProveedorRegistro proveedorRegistro) {
+        this.proveedorRegistro = proveedorRegistro;
+    }
+
+    public InterfazRepuestoLista getRepuestoLista() {
+        return repuestoLista;
+    }
+
+    public void setRepuestoLista(InterfazRepuestoLista repuestoLista) {
+        this.repuestoLista = repuestoLista;
+    }
+
+    public InterfazRepuestoRegistro getRepuestoRegistro() {
+        return repuestoRegistro;
+    }
+
+    public void setRepuestoRegistro(InterfazRepuestoRegistro repuestoRegistro) {
+        this.repuestoRegistro = repuestoRegistro;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }

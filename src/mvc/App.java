@@ -1,6 +1,7 @@
 package mvc;
 
 import controller.*;
+import javax.swing.table.DefaultTableModel;
 import model.*;
 import view.*;
 
@@ -8,8 +9,13 @@ public class App {
     
     public static void main(String[] args) {
         
+        //variables para configurar las tablas
+ 
+        
         // intancia modelo
         Cliente cliente = new Cliente();
+        Empleado empleado = new Empleado();
+        Proveedor proveedor = new Proveedor();
         
         //instancia vista
         PanelPrincipal Interfaz = new PanelPrincipal();
@@ -27,9 +33,15 @@ public class App {
                                                             vClienteLista,vClienteRegistro,
                                                             vVentaLista,vVentaRegistro,
                                                             vProveedorLista,vProveedorRegistro,
-                                                            vRepuestoLista,vRepuestoRegistro);
+                                                            vRepuestoLista,vRepuestoRegistro,
+                                                            cliente
+        );
+        ControladorCliente ctrlCliente = new ControladorCliente(vClienteRegistro,cliente);
+        ControladorProveedor ctrlproveedor = new ControladorProveedor(vProveedorRegistro,proveedor);
         
-//        ControladorCliente ctrlCliente = new ControladorCliente(vClienteLista,cliente);
+        
+
+        
         
         ctrl.iniciar();
         

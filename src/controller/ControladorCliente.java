@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.Cliente;
-import view.InterfazClienteLista;
 import view.InterfazClienteRegistro;
 //import view.PanelPrincipal;
 
@@ -17,46 +11,52 @@ import view.InterfazClienteRegistro;
  * @author fer
  */
 public class ControladorCliente implements ActionListener{
-//    private PanelPrincipal vistaPrincipal
     private InterfazClienteRegistro vistaRegistroCliente;
     private Cliente cliente;
 
     public ControladorCliente(InterfazClienteRegistro vistaRegistroCliente, Cliente cliente) {
         this.vistaRegistroCliente = vistaRegistroCliente;
         this.cliente = cliente;
-//        this.vistaRegistroCliente.btnClienteRegistroGuardar.addActionListener(this);
-    }
-
-    public ControladorCliente(InterfazClienteLista vClienteLista, Cliente cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+        this.vistaRegistroCliente.btnClienteRegistroGuardar.addActionListener(this);
+    }  
     
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         cliente.setTipoDocumento(vistaRegistroCliente.cBoxClienteRegistroTipoDocumento.getSelectedItem().toString());
         cliente.setNumeroDocumento(vistaRegistroCliente.txtClienteRegistroNumDocumento.getText());
-        cliente.setNumeroDocumento(vistaRegistroCliente.txtClienteRegistroNombre.getText());
-        cliente.setNumeroDocumento(vistaRegistroCliente.txtClienteRegistroApellidos.getText());
-        cliente.setNumeroDocumento(vistaRegistroCliente.txtClienteRegistroTelefono.getText());
-        cliente.setNumeroDocumento(vistaRegistroCliente.txtClienteRegistroTelefono.getText());
-        cliente.setNumeroDocumento(vistaRegistroCliente.txtClienteRegistroEmail.getText());
-        cliente.setNumeroDocumento(vistaRegistroCliente.txtClienteRegistroCiudad.getText());
-        cliente.setNumeroDocumento(vistaRegistroCliente.txtClienteRegistroDireccion.getText());
+        cliente.setNombreComercial(vistaRegistroCliente.txtClienteRegistroNombreComercial.getText());
+        cliente.setNombre(vistaRegistroCliente.txtClienteRegistroNombre.getText());
+        cliente.setApellidos(vistaRegistroCliente.txtClienteRegistroApellidos.getText());
+        cliente.setTelefono(vistaRegistroCliente.txtClienteRegistroTelefono.getText());
+        cliente.setCorreo(vistaRegistroCliente.txtClienteRegistroEmail.getText());
+        cliente.setCiudad(vistaRegistroCliente.txtClienteRegistroCiudad.getText());
+        cliente.setDireccion(vistaRegistroCliente.txtClienteRegistroDireccion.getText());
         
         if (ae.getSource()== this.vistaRegistroCliente.btnClienteRegistroGuardar) {
-            cliente.registrarCliente();
+            cliente.registrar();
             vistaRegistroCliente.cBoxClienteRegistroTipoDocumento.setSelectedIndex(0);
             vistaRegistroCliente.txtClienteRegistroNumDocumento.setText("");
+            vistaRegistroCliente.txtClienteRegistroNombreComercial.setText("");
             vistaRegistroCliente.txtClienteRegistroNombre.setText("");
             vistaRegistroCliente.txtClienteRegistroApellidos.setText("");
-            vistaRegistroCliente.txtClienteRegistroTelefono.setText("");
             vistaRegistroCliente.txtClienteRegistroTelefono.setText("");
             vistaRegistroCliente.txtClienteRegistroEmail.setText("");
             vistaRegistroCliente.txtClienteRegistroCiudad.setText("");
             vistaRegistroCliente.txtClienteRegistroDireccion.setText("");
         }
+//        if (ae.getSource()== this.vistaRegistroCliente.btnClienteRegistroGuardar) {
+//            cliente.mostrarLista();
+//            vistaRegistroCliente.cBoxClienteRegistroTipoDocumento.setSelectedIndex(0);
+//            vistaRegistroCliente.txtClienteRegistroNumDocumento.setText("");
+//            vistaRegistroCliente.txtClienteRegistroNombreComercial.setText("");
+//            vistaRegistroCliente.txtClienteRegistroNombre.setText("");
+//            vistaRegistroCliente.txtClienteRegistroApellidos.setText("");
+//            vistaRegistroCliente.txtClienteRegistroTelefono.setText("");
+//            vistaRegistroCliente.txtClienteRegistroEmail.setText("");
+//            vistaRegistroCliente.txtClienteRegistroCiudad.setText("");
+//            vistaRegistroCliente.txtClienteRegistroDireccion.setText("");
+//        }
     }
 
     
