@@ -73,8 +73,9 @@ public class Empleado extends Persona {
         this.tienda = tienda;
     }
 
+
     @Override
-    public String[] mostrarPorItem() {
+    public void actualizarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

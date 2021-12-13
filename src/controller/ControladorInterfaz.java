@@ -124,13 +124,6 @@ public class ControladorInterfaz implements ActionListener{
             interfaz.setTitle("Lista de repuesto");
         }      
     }
-    
-    public void mouseClicked(MouseEvent ae){
-        
-    }
-    
-    
-    
 
     public void iniciar(){
         

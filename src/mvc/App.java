@@ -44,7 +44,7 @@ public class App {
                                                             cliente, proveedor
         );
         
-        ControladorCliente ctrlCliente = new ControladorCliente(vClienteRegistro,cliente);
+        ControladorCliente ctrlCliente = new ControladorCliente(Interfaz, vClienteLista,vClienteRegistro,cliente);
         ControladorProveedor ctrlproveedor = new ControladorProveedor(vProveedorRegistro,proveedor);
         
         

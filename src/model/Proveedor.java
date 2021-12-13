@@ -78,7 +78,7 @@ public class Proveedor extends Persona{
     }
 
     @Override
-    public String[] mostrarPorItem() {
+    public void actualizarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

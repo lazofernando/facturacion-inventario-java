@@ -121,5 +121,5 @@ public abstract class Persona {
         }
     }
     public abstract void registrar();
-    public abstract String[] mostrarPorItem();
+    public abstract void actualizarRegistro();
 }
